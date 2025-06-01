@@ -1,37 +1,214 @@
+/* ====== RESET & DASAR ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ====== AKHIR RESET & DASAR ====== */
+
+/* ====== BODY & BACKGROUND ====== */
 body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: #A7E6FF;
+  color: #050C9C;
   position: relative;
   min-height: 100vh;
-  /* background image tetap di sini untuk fallback */
-  background: url('https://smkn1jetis.sch.id/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-03-at-20.15.26-768x576.jpeg') center/cover no-repeat;
   overflow-x: hidden;
+  padding-top: 110px; /* Sesuaikan dengan tinggi header + border */
 }
 
 body::before {
   content: "";
   position: fixed;
+  align-items: center;
   inset: 0;
   z-index: -1;
-  background: fixed;
-  background: url('https://smkn1jetis.sch.id/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-03-at-20.15.26-768x576.jpeg') center/cover no-repeat;
-  filter: brightness(0.5); /* Atur tingkat kecerahan di sini */
+  background: url('https://www.smkmanbailfutuh.sch.id/asset/foto_statis/Logo_SMK_bisa_hebat.png') center center no-repeat;
+  background-size: 70%;
+  filter: brightness(0.7);
+  opacity: 0.50;
 }
+/* ====== AKHIR BODY & BACKGROUND ====== */
 
+/* ====== HEADER & (NAV ATAS) ====== */
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 50px;
+  padding: 0 30px;
   height: 100px;
-  background: rgba(0,202,255,0.75); /* biru transparan */
+  background: linear-gradient(90deg, #48d4ff 0%, #3ABEF9 100%);
+  color: #fff;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  box-shadow: 0 2px 16px rgba(255, 255, 255, 0.938);
-  overflow: hidden;
-  backdrop-filter: blur(8px); /* efek blur modern */
-  position: relative;
-  z-index: 10;
+  box-shadow: 0 2px 16px rgba(53, 114, 239, 0.15);
+  overflow: visible;
+  backdrop-filter: blur(3px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  border: #fff 2px solid;
 }
 
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 30px;
+}
+.logo-area img {
+  width: 60px;
+  height: 60px;
+}
+.logo-area h1 {
+  font-size: 2.1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 900;
+  color: #050C9C;
+  letter-spacing: 1px;
+}
+
+nav {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  padding-left: 0;
+  margin: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #050C9C;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  transition: color 0.2s;
+  padding: 8px 0;
+  display: inline-block;
+}
+
+nav ul li a:hover {
+  color: #3ABEF9;
+}
+
+nav ul li.has-dropdown > a::after {
+  content: ' ▼';
+  font-size: 10px;
+  color: #666;
+  margin-left: 3px;
+}
+nav ul li:not(.has-dropdown) > a::after {
+  content: '';
+}
+
+/* Dropdown menu dasar */
+nav ul li .dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 16px rgba(53, 114, 239, 0.12);
+  min-width: 180px;
+  z-index: 999;
+  width: max-content;
+  padding: 8px 0;
+  list-style: none;
+}
+
+nav ul li:hover > .dropdown,
+nav ul li:focus-within > .dropdown {
+  display: block !important;
+}
+
+nav ul li .dropdown li {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+
+nav ul li .dropdown li a {
+  color: #050C9C;
+  padding: 12px 20px;
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+nav ul li .dropdown li a:hover {
+  background: #A7E6FF;
+  color: #3572EF;
+}
+
+/* Language selector style */
+nav ul li.lang-select {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+nav ul li.lang-select img {
+  width: 22px;
+  height: 16px;
+  cursor: pointer;
+}
+nav ul li.lang-select #lang-label {
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 4px;
+  color: #050C9C;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 18px 5vw;
+    border-radius: 0 0 20px 20px;
+  }
+  .logo-area {
+    margin-bottom: 10px;
+    margin-right: 0;
+    justify-content: center;
+  }
+  nav ul {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 700px) {
+  nav ul {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  header {
+    padding: 10px 2vw;
+  }
+  .logo-area {
+    justify-content: flex-start;
+  }
+}
+/* ====== AKHIR NAVIGASI ====== */
+
+/* ====== SECTION WELCOME ====== */
 .welcome {
   position: relative;
   width: 100%;
@@ -42,23 +219,75 @@ header {
   justify-content: center;
   z-index: 1;
   margin-top: 30px;
-  border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-  padding: 40px 20px;
-  max-width: 900px;
+  border-radius: 28px;
+  box-shadow: 0 8px 32px 0 rgba(53, 114, 239, 0.18), 0 1.5px 8px 0 rgba(0, 0, 0, 0.08);
+  padding: 8px 5px 50px 5px;
+  border: solid 2px #ffffff;
+  background: linear-gradient(135deg, #a7e6ff6b, #3abcf967, #48d4ff, #A7E6FF);
+  background-size: 400% 400%;
+  animation: gradientAnim 8s ease-out infinite; 
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+  margin-bottom: 50px;
 }
 
-.judul-welcome {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: 850;
-  color: #fff;
+/* Animasi untuk background gradient */
+@keyframes gradientAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.welcome::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.welcome:hover {
+  border: solid 2px #ffffff;
+  box-shadow: 0 12px 40px 0 rgba(53, 114, 239, 0.28), 0 4px 16px 0 rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px) scale(1.015);
+}
+
+.judul-welcome1 {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 900;
+  color: #050C9C;
   text-align: center;
-  margin-top: 10px;
-  font-size: 2.7rem;
-  -webkit-text-stroke: 1px #00caff;
-  text-shadow: 0 2px 8px #ffffff7c;
+  padding: 0 0;
+  font-size: 2.5rem;
+  -webkit-text-stroke: thick 1px #ffffff;
+  text-shadow: 0 2px 8px #ffffff;
+}
+
+.judul-welcome2 {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 900;
+  color: #050C9C;
+  text-align: center;
+  padding: 0 0;
+  font-size: 3rem;
+  text-shadow: #ffffff 0 2px 8px;
+  margin-top: -20px;
+}
+
+.judul-welcome2:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-shadow: 0 2px 8px #A7E6FF;
 }
 
 .form-welcome {
@@ -66,23 +295,23 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative; /* Tambahkan ini */
+  position: relative;
 }
 
 .input-welcome {
   width: 350px;
   max-width: 90vw;
-  padding: 12px 40px 12px 16px; /* Tambahkan padding kanan agar tidak tertimpa icon */
-  border: 2px solid #00caff;
+  padding: 12px 40px 12px 16px;
+  border: 2px solid #3572EF;
   border-radius: 10px;
-  box-shadow: 0 2px 5px #ffffff;
+  box-shadow: 0 2px 5px #A7E6FF;
   font-size: 1rem;
   outline: none;
   transition: border 0.2s;
 }
 
 .input-welcome:focus {
-  border: 2px solid #005eff;
+  border: 2px solid #3ABEF9;
 }
 
 .icon-welcome {
@@ -93,15 +322,17 @@ header {
   width: 24px;
   height: 24px;
   margin: 0;
-  filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.637));
-  pointer-events: none; /* Supaya tidak menghalangi klik input */
+  filter: drop-shadow(0 2px 6px #3ABEF9);
+  pointer-events: none;
   transition: transform 0.2s;
 }
 
 .form-welcome:hover .icon-welcome {
   transform: translateY(-50%) scale(1.1) rotate(-8deg);
 }
+/* ====== AKHIR SECTION WELCOME ====== */
 
+/* ====== RESPONSIVE HEADER & WELCOME ====== */
 @media (max-width: 700px) {
   header {
     flex-direction: column;
@@ -124,26 +355,113 @@ header {
     right: 10px;
   }
 }
+/* ====== AKHIR RESPONSIVE HEADER & WELCOME ====== */
 
-.container-content {
-    background-color: #ffffff;
+/* ====== KARTU KONTEN (PROFIL & BERITA) ====== */
+.container-content-modern {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  max-width: 100%;
-  max-height: 100%;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-  margin: 0 0;
+  gap: 32px;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin: 40px auto 40px auto;
+  max-width: fit-content; /* Lebar maksimal agar proporsional */
+  padding: 32px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px #3ABEF933;
 }
 
-.content1 {
-    background-color: rgba(255, 0, 0, 0.8);
+.card-modern {
+  background: linear-gradient(120deg, #A7E6FF 0%, #3ABEF9 100%);
+  border-radius: 22px;
+  box-shadow: 0 4px 24px #3ABEF933;
+  padding: 32px 26px 28px 26px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  z-index: 2;
+  transition: box-shadow 0.2s, transform 0.2s;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden; /* Supaya gambar tidak keluar dari card */
 }
+
+/* Gambar background transparan, default: tidak tampil */
+.card-modern .bg-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 22px;
+}
+
+/* Saat hover atau aktif, gambar muncul transparan */
+.card-modern:hover .bg-content,
+.card-modern:active .bg-content {
+    background: linear-gradient(120deg, #ffffff 0%, #ffffff 100%);
+  opacity: 0.50;
+  filter: blur(2px);
+}
+
+/* Konten card tetap di atas gambar */
+.card-modern > *:not(.bg-content) {
+  position: relative;
+  z-index: 1;
+}
+
+.judul-card-modern {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  color: #050C9C;
+  text-align: center;
+  font-size: 2rem;
+  padding: 5px 0 10px 0; 
+  margin-bottom: 20px;
+}
+
+.judul-card-modern:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-shadow: 0 2px 8px #A7E6FF;
+}
+
+.logo-card-modern {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(53, 114, 239, 0.2);
+}
+
+.card-modern:hover {
+  border: solid 2px #ffffff;
+  box-shadow: 0 8px 32px #3572EF33;
+  transform: translateY(-3px) scale(0.98);  
+}
+/* ====== AKHIR KARTU KONTEN MODERN ====== */
+
+/* ====== RESPONSIVE KARTU KONTEN ====== */
+@media (max-width: 900px) {
+  .container-content-modern {
+    padding: 18px 4vw;
+    max-width: 98vw;
+    gap: 18px;
+  }
+  .card-modern {
+    max-width: 100%;
+    padding: 22px 10px;
+  }
+  .card-modern img, .logo-card-modern {
+    max-width: 80px;
+    max-height: 80px;
+  }
+}
+/* ====== AKHIR RESPONSIVE KARTU KONTEN ====== */

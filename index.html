@@ -4,140 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMKN 1 ANONYMOUS</title>
+    <!-- ====== LINK CSS UTAMA ====== -->
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 50px;
-      height: 100px;
-      background: rgba(0,202,255,0.85); /* biru transparan, bisa diatur */
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      box-shadow: 0 2px 16px rgb(255, 253, 253)55, 0.12; /* shadow abu-abu transparan */
-      overflow: hidden;
-      border: #ffff   2px solid;
-    }     
-
-    header nav{
-        margin-right: 40px;
-    }
-    
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-area img {
-      width: 50px;
-    }
-
-    .logo-area h1 {
-      font-size: 24px;
-      color: #08214B;
-      letter-spacing: 1px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      align-items: center;
-    }
-
-    nav ul li {
-      position: relative;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #000;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    nav ul li a:hover {
-      color: #0a58ca;
-    }
-
-    /* Tambahan kecil untuk dropdown icon (▼) */
-    nav ul li::after {
-      content: ' ▼';
-      font-size: 10px;
-      color: #666;
-    }
-
-    /* Khusus "ID" dengan bendera */
-    .lang-select {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .lang-select img {
-      width: 16px;
-      height: 11px;
-      object-fit: cover;
-    }
-
-    .lang-select::after {
-      content: '▼';
-      font-size: 10px;
-      color: #666;
-    }
-    </style>    
+    <!-- ====== LINK FONT GOOGLE ====== -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- ====== HEADER / NAVIGASI ATAS ====== -->
     <header>
         <div class="logo-area">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/768px-LEGO_logo.svg.png" alt="Logo">
             <h1>TELADAN</h1>
         </div>
-
         <nav>
-            <ul>
-                <li><a href="#">PROFIL SEKOLAH</a></li>
-                <li><a href="#">BERITA</a></li>
-                <li><a href="#">KEUANGAN</a></li>
-                <li><a href="#">LAYANAN</a></li>
-                <li><a href="#">PRESTASI</a></li>
-                <li><a href="#">PROFIL ALUMNI</a></li>
-                <li><a href="#">KONTAK</a></li>
-                <li>
-                <div class="lang-select">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" alt="ID">
-                    <span>ID</span>
-                </div>
-                </li>
-            </ul>
-    </nav>
-  </header>
+          <ul>
+            <li class="has-dropdown">
+              <a href="#">Profil</a>
+              <ul class="dropdown">
+                <li><a href="profil/sejarah.html">Sejarah</a></li>
+                <li><a href="profil/visimisi.html">Visi & Misi</a></li>
+                <li><a href="profil/struktur.html">Struktur</a></li>
+                <li><a href="profil/guru-tenaga.html">Guru & Tenaga</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a href="#">Akademik</a>
+              <ul class="dropdown">
+                <li><a href="akademik/kurikulum.html">Kurikulum</a></li>
+                <li><a href="akademik/kegiatan.html">Kegiatan</a></li>
+                <li><a href="akademik/prestasi.html">Prestasi</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="ppdb/info.html">PPDB</a>
+            </li>
+            <li>
+              <a href="kesiswaan/kegiatan.html">Kesiswaan</a>
+            </li>
+            <li class="has-dropdown">
+              <a href="#">Berita</a>
+              <ul class="dropdown">
+                <li><a href="berita/umum.html">Umum</a></li>
+                <li><a href="berita/pengumuman.html">Pengumuman</a></li>
+                <li><a href="berita/agenda.html">Agenda</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a href="#">Galeri</a>
+              <ul class="dropdown">
+                <li><a href="galeri/foto.html">Foto</a></li>
+                <li><a href="galeri/video.html">Video</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a href="#">Kontak</a>
+              <ul class="dropdown">
+                <li><a href="kontak/alamat.html">Alamat</a></li>
+                <li><a href="kontak/online.html">Online</a></li>
+              </ul>
+            </li>
+            <!-- Language Switcher -->
+            <li class="lang-select">
+              <img id="flag-id" src="https://flagcdn.com/id.svg" alt="ID" title="Bahasa Indonesia">
+              <img id="flag-en" src="https://flagcdn.com/gb.svg" alt="EN" title="English" style="margin-left:6px;">
+              <span id="lang-label">ID</span>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <!-- ====== AKHIR HEADER ====== -->
+
+    <!-- ====== BAGIAN WELCOME ====== -->
     <div class="welcome">
-        <h1 class="judul-welcome">WELCOME TO SMKN 1 ANONYMOUS</h1>
+        <h2 class="judul-welcome1">SELAMAT DATANG DI</h2>
+        <h1 class="judul-welcome2">SMKN 1 ANONYMOUS</h1>
         <form class="form-welcome">
             <img class="icon-welcome" src="https://cdn-icons-png.flaticon.com/512/10629/10629681.png" alt="Search Icon">
             <input class="input-welcome" type="text" placeholder="Cari Tahu Dalam Sekolah">
         </form>
     </div>
-    <div class="container-content">
-        <div class="content1">
+    <!-- ====== AKHIR BAGIAN WELCOME ====== -->
 
+    <!-- ====== KONTEN UTAMA: PROFIL & BERITA ====== -->
+    <div class="container-content-modern">
+        <!-- Kartu Profil Sekolah -->
+        <div class="card-modern">
+            <img class="bg-content" src="https://asset.kompas.com/crops/yQsyKbP3KnJcvQOlWdTZv_uXKoU=/0x0:750x500/1200x800/data/photo/2025/04/22/680799d391c4d.jpg" alt="">
+            <h1 class="judul-card-modern">PROFIL SEKOLAH SMKN 1 ANONYMOUS</h1>
+            <img class="logo-card-modern" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/768px-LEGO_logo.svg.png" alt="Logo SMKN 1 ANONYMOUS">
+            <p class="isi-card-modern">SMKN 1 ANONYMOUS adalah sekolah menengah kejuruan yang berkomitmen untuk memberikan pendidikan berkualitas tinggi dan mempersiapkan siswa untuk dunia kerja.</p>
         </div>
-        <div class="content2">
 
+        <!-- Sambutan Kepala Sekolah -->
+        <div class="card-modern">
+            <h2 class="judul-sambutan">SAMBUTAN KEPALA SEKOLAH</h2>
+            <p class="isi-sambutan">Selamat datang di SMKN 1 ANONYMOUS. Kami berkomitmen untuk menciptakan lingkungan belajar yang inspiratif dan mendukung perkembangan siswa kami.</p>
+            <img class="foto-kepala-sekolah" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/768px-LEGO_logo.svg.png" alt="Foto Kepala Sekolah">
+        </div>
+        <!-- Kartu Berita Terbaru -->
+        <div class="card-modern">
+            <h2 class="judul-card-modern">Berita Terbaru</h2>
+            <ul class="list-berita-modern">
+                <li class="item-berita-modern">Penerimaan Siswa Baru Dibuka!</li>
+                <li class="item-berita-modern">Kegiatan Praktek Kerja Lapangan Sukses</li>
+                <li class="item-berita-modern">Prestasi Siswa di Kompetisi Nasional</li>
+            </ul>
         </div>
     </div>
+    <!-- ====== AKHIR KONTEN UTAMA ====== -->
 </body>
 </html>
